@@ -1,0 +1,89 @@
+<table mat-table class="mat-elevation-z8" >
+    <tr>
+        <td>
+    <h3><b>To Do</b></h3>
+    <mat-card style="margin: 10px;">
+        <button mat-icon-button class="example-icon"
+        aria-label="Example icon-button with share icon"
+        (click)="addToDo()"
+        type="submit" style="color: forestgreen;">
+        <mat-icon style="color:forestgreen;">add</mat-icon>
+        Add Task
+        </button>
+    </mat-card>
+    </td>
+   <td>
+    <h3><b>In Porgess</b></h3>
+    <mat-card style="margin: 10px;">
+    <button mat-icon-button class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="addInPorgess()"
+    type="submit" style="color: forestgreen;">
+    <mat-icon style="color:forestgreen;">add</mat-icon>
+    Add Task
+    </button>
+</mat-card>
+</td>
+<td>
+    <h3><b>Completed</b></h3>
+    <mat-card style="margin: 10px;">
+    <button mat-icon-button class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="addCompleted()"
+    type="submit" style="color: forestgreen;">
+    <mat-icon style="color:forestgreen;">add</mat-icon>
+    Add Task
+    </button>
+</mat-card>
+</td>
+</tr>
+<tr>
+    <td>
+        <br>
+        <div 
+        *ngFor="let task of data"
+        style="
+        text-align: center;
+        margin: 10px;
+        height: 50px;
+       ">
+        <div *ngIf="task.inTodo==true">
+        <mat-checkbox (change)="checked(task)">{{task.Name}}</mat-checkbox>
+    </div>
+</div>
+    
+    </td>
+    <td>
+        <div 
+        *ngFor="let tasks of data"
+        style="
+           text-align: center;
+        margin: 10px;
+        height: 50px;
+       ">
+         <div *ngIf="tasks.inProgress==true">
+        <mat-checkbox (change)="inProgess(tasks)">{{tasks.Name}}</mat-checkbox>
+    </div>
+    </div>
+    </td>
+    <td>
+        <div  
+        *ngFor="let task1 of data"
+        style="
+           text-align: center;
+        margin: 10px;
+        height: 50px;
+       ">
+        <div *ngIf="task1.inCompleted==true">
+       {{task1.Name}}
+
+        <button mat-button class="example-icon"
+        aria-label="Example icon-button with share icon"
+        type="submit" (click)="deleteTask(task1.id)">
+        <mat-icon style="color:red">delete</mat-icon>
+        </button>
+    </div>
+    </div>  
+    </td>
+</tr>
+</table>

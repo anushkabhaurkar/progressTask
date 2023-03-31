@@ -1,0 +1,19 @@
+<form [formGroup]="completeForm" (ngSubmit)="submit()">
+    <div style="margin-left: 77%;">
+        <button mat-button mat-dialog-close>x</button>
+      </div>
+    <p>
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="Name" required/>
+            <mat-error *ngIf="hasError('Name', 'required')"
+              >Name is required</mat-error
+            >
+            <mat-error *ngIf="hasError('Name', 'pattern')"
+              >Enter Valid Name</mat-error
+            >
+          </mat-form-field>
+        </p>
+    <button mat-raised-button color="accent" type="submit">
+       Add Task
+      </button>
+  </form>
